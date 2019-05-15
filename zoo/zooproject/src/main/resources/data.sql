@@ -10,7 +10,7 @@ FROM telephone;
 DELETE
 FROM zoo;
 
-INSERT INTO zoo (zooid, zooname)
+INSERT INTO zoo (zooid, name)
          VALUES (1, 'Gladys Porter Zoo'),
                 (2, 'Point Defiance Zoo'),
                 (3, 'San Diego Zoo'),

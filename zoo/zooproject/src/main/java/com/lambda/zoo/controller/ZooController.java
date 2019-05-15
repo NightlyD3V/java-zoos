@@ -16,8 +16,8 @@ public class ZooController
     private ZooService zooService;
 
     //localhost:8080/zoos/zoos
-    @GetMapping(value = "/zoos", produces = {"application.json"})
-    public ResponseEntity<?> GetAllZoos()
+    @RequestMapping(value = "/all", produces = {"application/json"})
+    public ResponseEntity<?> getAllZoos()
     {
         return new ResponseEntity<>(zooService.findAll(), HttpStatus.OK);
     }

@@ -12,14 +12,15 @@ public class Zoo
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private long zooid;
 
-    private String zooname;
+    private String name;
     //OneToMany relationship between Telephone
     @OneToMany
-    @JoinColumn(name = "telephoneid")
+    @JoinColumn(name = "phoneid")
     @JsonIgnoreProperties("zoo")
     private List<Telephone> telephones = new ArrayList<>();
-    @ManyToMany(mappedBy = "zoo")
+    @ManyToMany(mappedBy = "zooList")
     @JsonIgnoreProperties("zoo")
     private List<Animal> animals = new ArrayList<>();
 
@@ -27,17 +28,27 @@ public class Zoo
 
     public Zoo(String zooname)
     {
-        this.zooname = zooname;
+        this.name = zooname;
     }
 
-    public String getZooname()
+    public String getName()
     {
-        return zooname;
+        return name;
     }
 
-    public void setZooname(String zooname)
+    public void setName(String name)
     {
-        this.zooname = zooname;
+        this.name = name;
+    }
+
+    public long getZooid()
+    {
+        return zooid;
+    }
+
+    public void setZooid(long zooid)
+    {
+        this.zooid = zooid;
     }
 
     public List<Telephone> getTelephones()
@@ -48,5 +59,15 @@ public class Zoo
     public void setTelephones(List<Telephone> telephones)
     {
         this.telephones = telephones;
+    }
+
+    public List<Animal> getAnimals()
+    {
+        return animals;
+    }
+
+    public void setAnimals(List<Animal> animals)
+    {
+        this.animals = animals;
     }
 }
